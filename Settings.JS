@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
   settingsItem: {
     padding: 20,
     marginVertical: 10,
-    borderWidth: 1,
-    borderColor: '#000',
-    borderRadius: 20,
+    marginBottom:5,
+    fontFamily:'General sans',
+    borderBottomWidth:1,
+    borderColor:'grey',
     backgroundColor: '#FFF',
     width: 350,
     height: 90,
