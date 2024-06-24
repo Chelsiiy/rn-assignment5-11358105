@@ -19,10 +19,10 @@ export default function App() {
         renderItem={({ item }) => (
           <View style={styles.settingsItem}>
             <Text style={styles.settingsText}>{item.settings}</Text>
+            <Text style={styles.arrow}>{'>'} </Text>
           </View>
         )}
-      />
-       ListFooterComponent={<Text style={styles.piece}>Themes</Text>}
+        ListFooterComponent={<Text style={styles.piece}>Themes</Text>}
         contentContainerStyle={styles.listContentContainer}
       />
       <StatusBar style="auto" />
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
+  listContentContainer: {
+    alignItems: 'center',
+  },
   settingsItem: {
     padding: 20,
     marginVertical: 5,
@@ -51,17 +54,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     width: 350,
     height: 70,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+    alignItems: 'center', 
   },
   settingsText: {
     fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Times New Roman',
+    alignItems:'Flex-start',
   },
   piece: {
-    marginTop: 50,
+    marginTop: 20,
     fontWeight: 'bold',
-    paddingTop: 50,
+    paddingTop: 10,
+    fontSize:25,
   }
+
 });
