@@ -22,6 +22,9 @@ export default function App() {
           </View>
         )}
       />
+       ListFooterComponent={<Text style={styles.piece}>Themes</Text>}
+        contentContainerStyle={styles.listContentContainer}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -42,19 +45,23 @@ const styles = StyleSheet.create({
   },
   settingsItem: {
     padding: 20,
-    marginVertical: 10,
-    marginBottom:5,
-    fontFamily:'General sans',
-    borderBottomWidth:1,
-    borderColor:'grey',
+    marginVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#808080',
     backgroundColor: '#FFF',
     width: 350,
-    height: 90,
+    height: 70,
     justifyContent: 'center',
     alignItems: 'center',
   },
   settingsText: {
     fontSize: 20,
     textAlign: 'center',
+    fontFamily: 'Times New Roman',
   },
+  piece: {
+    marginTop: 50,
+    fontWeight: 'bold',
+    paddingTop: 50,
+  }
 });
