@@ -18,7 +18,7 @@ export default function Homepage() {
       <Image source={require('./assets/Chelsss.jpg')} style={styles.picture} />
       <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
-      <Image source={require('./assets/Card.png')}  />
+      <Image source={require('./assets/Card.png')} style={styles.card}  />
 
 
       <View style={styles.actionContainer}>
@@ -75,29 +75,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   infocontainer:{
-    marginTop:200,
-
+    marginTop:150,
 
   },
   subtopic: {
     fontSize: 20,
-    marginTop:100,
+    fontWeight:'light',
+    marginLeft:100,
   },
   firstTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    marginLeft:100,
   },
   picture: {
     width: 150,
     height: 150,
     borderRadius: 100,
-    marginRight:200,
+    marginRight:250,
+    marginBottom:100,
   },
 icon:{
   width:50,
   height:50,
   borderRadius:50,
   marginLeft:250,
+},
+card:{
+    marginTop:150,
 },
   logo: {
     width: 50,
