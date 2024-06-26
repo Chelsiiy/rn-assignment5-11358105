@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'),<Text style={styles.title}>$3000</Text> },
-  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg') , <Text style={styles.title}>$20</Text> },
-  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), <Text style={styles.title}>$25</Text> },
-  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), <Text style={styles.title}>$200</Text> },
-  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'),<Text style={styles.title}>$4500</Text>},
+  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'),<Text style={styles.viewAll}>$3000</Text> },
+  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg') , <Text style={styles.viewAll}>$20</Text> },
+  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), <Text style={styles.viewAll}>$25</Text> },
+  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), <Text style={styles.viewAll}>$200</Text> },
+  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'),<Text style={styles.viewAll}>$4500</Text>},
 ];
 
 export default function Homepage() {
