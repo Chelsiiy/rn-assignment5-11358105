@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, ScrollView, Image,Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView, Image, Button, Alert } from 'react-native';
 
 const transactions = [
   { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000' },
@@ -10,6 +10,10 @@ const transactions = [
 ];
 
 export default function Homepage() {
+  const handlePress = (action) => {
+    Alert.alert(`Button pressed: ${action}`);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.infoContainer}>
@@ -21,31 +25,35 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')} />
-      <Button>
+      <Image source={require('./assets/Card.png')} style={styles.cardImage} />
+
       <View style={styles.actionRow}>
         <View style={styles.action}>
-          <Text style={styles.actionText}>SENT</Text>
+          <Button title="SENT" onPress={() => handlePress('Sent')}
           <Image source={require('./assets/sent.jpg')} style={styles.logo} />
         </View>
+        />
         <View style={styles.action}>
-          <Text style={styles.actionText}>RECEIVE</Text>
+          <Button title="RECEIVE" onPress={() => handlePress('Receive')} 
           <Image source={require('./assets/Receive.png')} style={styles.logo} />
         </View>
+        />
         <View style={styles.action}>
-          <Text style={styles.actionText}>Loan</Text>
+          <Button title="LOAN" onPress={() => handlePress('Loan')} 
           <Image source={require('./assets/dollar-coin.png')} style={styles.logo} />
         </View>
+        />
         <View style={styles.action}>
-          <Text style={styles.actionText}>TOP-UP</Text>
+          <Button title="TOP-UP" onPress={() => handlePress('Top-Up')} 
           <Image source={require('./assets/upload.jpg')} style={styles.logo} />
         </View>
+        />
       </View>
-      </Button>
+
       <View style={styles.transactionsContainer}>
         <Text style={styles.title}>Transactions</Text>
         <Text style={styles.viewAll}>See all</Text>
-        <ScrollView>
+        <ScrollView horizontal>
           <FlatList
             data={transactions}
             keyExtractor={(item) => item.id}
@@ -100,7 +108,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
   },
-
+  
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -109,13 +117,10 @@ const styles = StyleSheet.create({
   action: {
     alignItems: 'center',
   },
-  actionText: {
-    fontSize: 16,
-    marginBottom: 8,
-  },
   logo: {
     width: 50,
     height: 50,
+    marginTop: 8,
   },
   transactionsContainer: {
     flex: 1,
@@ -133,6 +138,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 8,
     marginBottom: 8,
+    width:350,
   },
   transactionImage: {
     width: 30,
