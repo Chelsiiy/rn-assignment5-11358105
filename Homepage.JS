@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store',<Image source={require('./assets/Apple_Store.png')} style={styles.picture} /> },
-  { id: '2', transaction: 'Spotify',<Image source={require('./assets/Spotify.jpg')} style={styles.picture} /> },
-  { id: '3', transaction: 'Uber',<Image source={require('./assets/uber.jpg')} style={styles.picture} /> },
-  { id: '4', transaction: 'Groceries' ,<Image source={require('./assets/groceries.png')} style={styles.picture} />},
-  { id: '5', transaction: 'Money Transfer',<Image source={require('./assets/money.jpeg')} style={styles.picture} /> },
+  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'),<Text style={styles.title}>$3000</Text> },
+  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg') , <Text style={styles.title}>$20</Text> },
+  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), <Text style={styles.title}>$25</Text> },
+  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), <Text style={styles.title}>$200</Text> },
+  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'),<Text style={styles.title}>$4500</Text>},
 ];
 
 export default function Homepage() {
@@ -21,7 +21,7 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')}  />
+      <Image source={require('./assets/Card.png')} />
 
       <View style={styles.actionRow}>
         <View style={styles.action}>
@@ -50,6 +50,7 @@ export default function Homepage() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.transactionItem}>
+              <Image source={item.image} style={styles.transactionImage} />
               <Text style={styles.transactionText}>{item.transaction}</Text>
             </View>
           )}
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    marginLeft: 50,
+    marginLeft: 10,
   },
   subtitle: {
     fontSize: 20,
@@ -87,14 +88,20 @@ const styles = StyleSheet.create({
   picture: {
     width: 50,
     height: 50,
-    borderRadius: 100,
+    borderRadius: 25,
   },
   icon: {
     width: 40,
     height: 40,
-    borderRadius: 25,
+    borderRadius: 20,
   },
-
+  card: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -121,10 +128,17 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   transactionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#f0f0f0',
     padding: 12,
     borderRadius: 8,
     marginBottom: 8,
+  },
+  transactionImage: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
   transactionText: {
     fontSize: 16,
