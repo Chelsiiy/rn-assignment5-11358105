@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store' },
-  { id: '2', transaction: 'Spotify' },
-  { id: '3', transaction: 'Uber' },
-  { id: '4', transaction: 'Groceries' },
-  { id: '5', transaction: 'Money Transfer' },
+  { id: '1', transaction: 'Apple store',<Image source={require('./assets/Apple_Store.png')} style={styles.picture} /> },
+  { id: '2', transaction: 'Spotify',<Image source={require('./assets/Spotify.jpg')} style={styles.picture} /> },
+  { id: '3', transaction: 'Uber',<Image source={require('./assets/uber.jpg')} style={styles.picture} /> },
+  { id: '4', transaction: 'Groceries' ,<Image source={require('./assets/groceries.png')} style={styles.picture} />},
+  { id: '5', transaction: 'Money Transfer',<Image source={require('./assets/money.jpeg')} style={styles.picture} /> },
 ];
 
 export default function Homepage() {
