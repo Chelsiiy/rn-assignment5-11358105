@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, ScrollView, Image, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView, Image, TouchableOpacity, Alert } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000' },
-  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg'), amount: '$20' },
-  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), amount: '$25' },
-  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), amount: '$200' },
-  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'), amount: '$4500' },
+  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
+  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg'), amount: '$20',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
+  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), amount: '$25',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
+  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), amount: '$200',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
+  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'), amount: '$4500',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
 ];
 
 export default function Homepage() {
@@ -25,29 +25,25 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')} style={styles.cardImage} />
+      <Image source={require('./assets/Card.png')} />
 
       <View style={styles.actionRow}>
-        <View style={styles.action}>
-          <Button title="SENT" onPress={() => handlePress('Sent')}
+        <TouchableOpacity style={styles.action} onPress={() => handlePress('Sent')}>
+          <Text style={styles.actionText}>SENT</Text>
           <Image source={require('./assets/sent.jpg')} style={styles.logo} />
-        </View>
-        />
-        <View style={styles.action}>
-          <Button title="RECEIVE" onPress={() => handlePress('Receive')} 
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} onPress={() => handlePress('Receive')}>
+          <Text style={styles.actionText}>RECEIVE</Text>
           <Image source={require('./assets/Receive.png')} style={styles.logo} />
-        </View>
-        />
-        <View style={styles.action}>
-          <Button title="LOAN" onPress={() => handlePress('Loan')} 
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} onPress={() => handlePress('Loan')}>
+          <Text style={styles.actionText}>LOAN</Text>
           <Image source={require('./assets/dollar-coin.png')} style={styles.logo} />
-        </View>
-        />
-        <View style={styles.action}>
-          <Button title="TOP-UP" onPress={() => handlePress('Top-Up')} 
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} onPress={() => handlePress('Top-Up')}>
+          <Text style={styles.actionText}>TOP-UP</Text>
           <Image source={require('./assets/upload.jpg')} style={styles.logo} />
-        </View>
-        />
+        </TouchableOpacity>
       </View>
 
       <View style={styles.transactionsContainer}>
@@ -108,7 +104,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
   },
-  
+
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -117,10 +113,13 @@ const styles = StyleSheet.create({
   action: {
     alignItems: 'center',
   },
+  actionText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
   logo: {
     width: 50,
     height: 50,
-    marginTop: 8,
   },
   transactionsContainer: {
     flex: 1,
@@ -138,7 +137,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 8,
     marginBottom: 8,
-    width:350,
+    width: 350,
   },
   transactionImage: {
     width: 30,
