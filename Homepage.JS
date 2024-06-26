@@ -2,16 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, ScrollView, Image, TouchableOpacity, Alert } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
-  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg'), amount: '$20',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
-  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), amount: '$25',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
-  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), amount: '$200',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
-  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'), amount: '$4500',<TouchableOpacity style={styles.action} onPress={() => handlePress('Paid')}> },
+  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000' },
+  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg'), amount: '$20' },
+  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), amount: '$25' },
+  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), amount: '$200' },
+  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'), amount: '$4500' },
 ];
 
 export default function Homepage() {
   const handlePress = (action) => {
     Alert.alert(`Button pressed: ${action}`);
+  };
+
+  const handleTransactionPress = (transaction) => {
+    Alert.alert(`Transaction pressed: ${transaction}`);
   };
 
   return (
@@ -25,7 +29,7 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')} />
+      <Image source={require('./assets/Card.png')}  />
 
       <View style={styles.actionRow}>
         <TouchableOpacity style={styles.action} onPress={() => handlePress('Sent')}>
@@ -54,13 +58,13 @@ export default function Homepage() {
             data={transactions}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <View style={styles.transactionItem}>
+              <TouchableOpacity style={styles.transactionItem} onPress={() => handleTransactionPress(item.transaction)}>
                 <Image source={item.image} style={styles.transactionImage} />
                 <View style={styles.transactionDetails}>
                   <Text style={styles.transactionText}>{item.transaction}</Text>
                   <Text style={styles.transactionAmount}>{item.amount}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </ScrollView>
