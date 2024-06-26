@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Image,Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView, Image,Button } from 'react-native';
 
 const transactions = [
   { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000' },
@@ -21,8 +21,8 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')}  />
-
+      <Image source={require('./assets/Card.png')} />
+      <Button>
       <View style={styles.actionRow}>
         <View style={styles.action}>
           <Text style={styles.actionText}>SENT</Text>
@@ -41,24 +41,25 @@ export default function Homepage() {
           <Image source={require('./assets/upload.jpg')} style={styles.logo} />
         </View>
       </View>
-      <Scrollview vertical >
+      </Button>
       <View style={styles.transactionsContainer}>
         <Text style={styles.title}>Transactions</Text>
         <Text style={styles.viewAll}>See all</Text>
-        <FlatList
-          data={transactions}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.transactionItem}>
-              <Image source={item.image} style={styles.transactionImage} />
-              <View style={styles.transactionDetails}>
-                <Text style={styles.transactionText}>{item.transaction}</Text>
-                <Text style={styles.transactionAmount}>{item.amount}</Text>
+        <ScrollView>
+          <FlatList
+            data={transactions}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.transactionItem}>
+                <Image source={item.image} style={styles.transactionImage} />
+                <View style={styles.transactionDetails}>
+                  <Text style={styles.transactionText}>{item.transaction}</Text>
+                  <Text style={styles.transactionAmount}>{item.amount}</Text>
+                </View>
               </View>
-            </View>
-            </Scrollview>
-          )}
-        />
+            )}
+          />
+        </ScrollView>
       </View>
 
       <StatusBar style="auto" />
