@@ -1,10 +1,11 @@
-
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 import Homepage from './Homepage';
-import Settings from './Settings.JS'; 
+import Settings from './Settings.JS';
+import MyCards from './Mycards.JS'; // 
+import Statistics from './Statistics.JS'; // 
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,6 @@ function App() {
                 : require('./assets/settings-icon.png');
             }
 
-          
             return <Image source={iconName} style={{ width: 24, height: 24 }} />;
           },
         })}
