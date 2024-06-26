@@ -69,6 +69,24 @@ export default function Homepage() {
           />
         </ScrollView>
       </View>
+    <View style={styles.actionRow}>
+        <TouchableOpacity style={styles.action} >
+          <Text style={styles.actionText}>HOME</Text>
+          <Image source={require('./assets/house.png')} style={styles.logo} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action}>
+          <Text style={styles.actionText}>MY CARDS</Text>
+          <Image source={require('./assets/ATM-card.png')} style={styles.logo} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} >
+          <Text style={styles.actionText}>STATISTICS</Text>
+          <Image source={require('./assets/stat.jpg')} style={styles.logo} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} >
+          <Text style={styles.actionText}>SETTINGS</Text>
+          <Image source={require('./assets/settings-icon.png')} style={styles.logo} />
+        </TouchableOpacity>
+      </View>
 
       <StatusBar style="auto" />
     </View>
