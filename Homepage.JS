@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image,Button } from 'react-native';
 
 const transactions = [
-  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'),<Text style={styles.viewAll}>$3000</Text> },
-  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg') , <Text style={styles.viewAll}>$20</Text> },
-  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), <Text style={styles.viewAll}>$25</Text> },
-  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), <Text style={styles.viewAll}>$200</Text> },
-  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'),<Text style={styles.viewAll}>$4500</Text>},
+  { id: '1', transaction: 'Apple store', image: require('./assets/Apple_Store.png'), amount: '$3000' },
+  { id: '2', transaction: 'Spotify', image: require('./assets/Spotify.jpg'), amount: '$20' },
+  { id: '3', transaction: 'Uber', image: require('./assets/uber.jpg'), amount: '$25' },
+  { id: '4', transaction: 'Groceries', image: require('./assets/groceries.png'), amount: '$200' },
+  { id: '5', transaction: 'Money Transfer', image: require('./assets/money.jpeg'), amount: '$4500' },
 ];
 
 export default function Homepage() {
@@ -21,7 +21,7 @@ export default function Homepage() {
         <Image source={require('./assets/search-image.png')} style={styles.icon} />
       </View>
 
-      <Image source={require('./assets/Card.png')} />
+      <Image source={require('./assets/Card.png')}  />
 
       <View style={styles.actionRow}>
         <View style={styles.action}>
@@ -41,7 +41,7 @@ export default function Homepage() {
           <Image source={require('./assets/upload.jpg')} style={styles.logo} />
         </View>
       </View>
-
+      <Scrollview vertical >
       <View style={styles.transactionsContainer}>
         <Text style={styles.title}>Transactions</Text>
         <Text style={styles.viewAll}>See all</Text>
@@ -51,8 +51,12 @@ export default function Homepage() {
           renderItem={({ item }) => (
             <View style={styles.transactionItem}>
               <Image source={item.image} style={styles.transactionImage} />
-              <Text style={styles.transactionText}>{item.transaction}</Text>
+              <View style={styles.transactionDetails}>
+                <Text style={styles.transactionText}>{item.transaction}</Text>
+                <Text style={styles.transactionAmount}>{item.amount}</Text>
+              </View>
             </View>
+            </Scrollview>
           )}
         />
       </View>
@@ -95,13 +99,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
   },
-  card: {
-    width: '100%',
-    height: 200,
-    borderRadius: 10,
-    marginTop: 20,
-    marginBottom: 20,
-  },
+
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -140,7 +138,16 @@ const styles = StyleSheet.create({
     height: 30,
     marginRight: 10,
   },
+  transactionDetails: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   transactionText: {
     fontSize: 16,
+  },
+  transactionAmount: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
