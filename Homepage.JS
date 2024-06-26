@@ -69,7 +69,7 @@ export default function Homepage() {
           />
         </ScrollView>
       </View>
-    <View style={styles.actionRow}>
+    <View style={styles.navigationRow}>
         <TouchableOpacity style={styles.action} >
           <Text style={styles.actionText}>HOME</Text>
           <Image source={require('./assets/house.png')} style={styles.logo} />
@@ -177,5 +177,10 @@ const styles = StyleSheet.create({
   transactionAmount: {
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  navigationRow:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 20,
   },
 });
